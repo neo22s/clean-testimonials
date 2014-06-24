@@ -75,6 +75,10 @@ function shortcode_testimonials ( $atts ) {
 
 	$output = '';
 
+	if( isset( $atts['categories'] ) ) {
+	   $args['testimonial_category'] = $atts['categories'];
+	}
+    
 	if( isset( $atts['category'] ) ) {
 
 		$ids 	= explode( ',', $atts['category'] );
