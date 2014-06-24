@@ -67,10 +67,7 @@ final class WP_Testimonial {
 
 					if( isset( $this->word_limit ) && $this->word_limit > 0 ) {
 
-						$words = explode( ' ', $this->post_content );
-						echo implode( ' ',
-							( count( $words ) <= $this->word_limit ? $words : array_slice( $words, 0, $this->word_limit ) )
-						) . '... <a href="' . get_permalink( $this->ID ) . '">Read More</a>';
+						echo wp_trim_words( $this->post_content, $this->word_limit, '<a href="'. get_permalink($this->ID) .'"> ...Read More</a>' );
 
 					}
 					else echo $this->post_content;
